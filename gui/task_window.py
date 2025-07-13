@@ -6,6 +6,9 @@ def open_task_window(parent, logic, year, month, day):
     top = ctk.CTkToplevel(parent)
     top.title("Dodaj zadanie")
     top.geometry("400x300")
+    top.lift()
+    top.attributes("-topmost", True)
+    top.after_idle(top.attributes, "-topmost", False)
 
     date_str = format_date(datetime(year, month, day))
 
